@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <meta name="theme-color" content="#714874" />
+    <title>WORD COUNTER</title>
+    <style media="all">
+        body {
+            color: white;
+            background-color: black;
+        }
+        .container{
+        display:grid;
+        justify-items:center;
+        align-content:center;
+        grid-gap:10px;
+        width:100%;
+        height:100%;
+        }
+        select,input{
+            font-size:1.8em;
+        }
+         input,p{
+            width:50%;
+          }
+        p{
+            text-align:center;
+            font-size:1.5em;
+        }
+        h1{
+            text-decoration:underline;
+        }
+        a{
+            color:white;
+            text-decoration-color:orange;
+        }
+        footer{
+            text-align:center;
+            font-size:larger;
+        }
+  @media only screen and (max-width:767px){
+    h1{
+                font-size: 1.5em;
+            }
+    input,p{
+            width:100%;
+        }
+        input{
+            font-size: 1em;
+        }
+            p{
+                font-size: 1em;
+            }
+            footer div,footer small{
+              font-size: 0.7em;
+            }
+  }
+ 
+    </style>
+  </head>
+    <body>
+      <div class="container">
+        <h1>THE WORD COUNTER</h1>
+        <p>Write or copy your words into the box below and it would be counted:</p>
+    <input type="text" id="inp" oninput="countWords()" placeholder="Copy and paste your article or essay here" autofocus>
+    <p id="disp"></p>
+    <p id="thewords"></p>
+    </div>
+    <footer>
+      <div> Adesanwo Hassan copyright&copy; 2023 | All rights are reserved.</div>
+      <small>Developed by <a href="#">Hassan</a></small>
+  </footer>
+
+
+      <script>
+        function countWords(){
+   var inp=document.getElementById("inp");
+   var disp=document.getElementById("disp");
+   var words=document.getElementById("thewords");
+   words.innerHTML=inp.value;
+   var myList=words.innerText;
+   if(myList !== ""){
+   var mySort=myList.split(" ");
+   var myLength=mySort.length;
+   disp.style.border="1px solid white";
+   disp.innerHTML="There are" + " " + myLength + " " + "number of words below";
+    }
+    else{
+      disp.style.border="1px solid white";
+      disp.innerHTML="There are no words to count";
+    }
+        }
+      </script>
+
+    </body>
+</html>
